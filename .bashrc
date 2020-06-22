@@ -18,8 +18,7 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-export PS1="\[\033[38;5;1m\]\u\[\033[38;5;15m\]@\[\033[38;5;2m\]\h\[\033[38;5;15m\] \[\033[38;5;1m\]\$(pwd)\[\033[38;5;15m\]\$(parse_git_branch) \$ \[\e[0m\]"
-
+export PS1="\[$(tput bold)\]\[\033[38;5;15m\][\[\033[38;5;1m\]\u\[\033[38;5;15m\]@\[\033[38;5;2m\]\h\[\033[38;5;15m\] \[\033[38;5;1m\]\$(pwd)\[\033[38;5;15m\]]\[\033[38;5;15m\]\$(parse_git_branch) \$ \[\e[0m\]"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
