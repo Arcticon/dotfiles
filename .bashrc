@@ -57,3 +57,6 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias ll='ls -alF'
 alias gl='git log --pretty="format:%h _%an_ %s"'
+
+export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
+export EDITOR="vim"
