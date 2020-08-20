@@ -7,12 +7,15 @@ shopt -s autocd
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+#parallel history
+history -a
+
 # Infinite history
 HISTSIZE= HISTFILESIZE=
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
-#shopt -s checkwinsize
+shopt -s checkwinsize
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
