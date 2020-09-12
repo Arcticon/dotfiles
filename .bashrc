@@ -60,6 +60,10 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias ll='ls -alF'
 alias gl='git log --pretty="format:%h _%an_ %s"'
+alias updateFirmware='fwupdmgr get-updates && fwupdmgr update'
+alias cpu1='watch -n 0.1 "lscpu | grep MHz"'
+alias cpu2='watch -n 0.1 "cat /proc/cpuinfo | grep MHz"'
 
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 export EDITOR="vim"
+export VISUAL="$EDITOR"
