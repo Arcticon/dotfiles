@@ -62,3 +62,9 @@ fi
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 export EDITOR="vim"
 export VISUAL="$EDITOR"
+
+if [ -d "$HOME/.bun" ]; then
+  # bun
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH=$BUN_INSTALL/bin:$PATH
+fi
