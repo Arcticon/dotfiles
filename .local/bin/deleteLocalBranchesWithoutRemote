@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -z "$(git rev-parse --git-dir 2>/dev/null)" ]; then
+  echo "not in git repo"
+  exit 1
+fi
+
+masterBranch=$(git rev-parse --abbrev-ref origin/HEAD | cut -c8-)
+git fetch origin >/dev/null 2>&1 && git branch --merged "$masterBranch" | grep -v "$masterBranch" | grep -v "\*" >/tmp/alreadyMergedBranches && editor /tmp/alreadyMergedBranches && xargs git branch -d </tmp/alreadyMergedBranches && rm /tmp/alreadyMergedBranches || echo "nothing to delete"

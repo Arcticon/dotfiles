@@ -1,0 +1,10 @@
+[pull]
+	rebase = true
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false

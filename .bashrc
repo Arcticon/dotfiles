@@ -18,7 +18,7 @@ HISTSIZE= HISTFILESIZE=
 shopt -s checkwinsize
 
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 export PS1="\[$(tput bold)\]\[\033[38;5;15m\][\[\033[38;5;1m\]\u\[\033[38;5;15m\]@\[\033[38;5;2m\]\h\[\033[38;5;15m\] \[\033[38;5;1m\]\$(pwd)\[\033[38;5;15m\]]\[\033[38;5;15m\]\$(parse_git_branch) \$ \[\e[0m\]"
@@ -53,16 +53,11 @@ if type brew &>/dev/null; then
   fi
 fi
 
-# aliases
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias ll='ls -alF'
-alias gl='git log --pretty="format:%h _%an_ %s"'
-alias updateFirmware='fwupdmgr get-updates && fwupdmgr update'
-alias cpu1='watch -n 0.1 "lscpu | grep MHz"'
-alias cpu2='watch -n 0.1 "cat /proc/cpuinfo | grep MHz"'
+if [ -d "$HOME/.nvm" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 export EDITOR="vim"
