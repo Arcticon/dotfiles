@@ -6,7 +6,7 @@ cd ~
 git init
 git remote add origin git@github.com:Arcticon/dotfiles.git
 git fetch
-git checkout master
+git checkout -b master
 git reset --mixed origin/master
 ```
 
