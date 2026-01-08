@@ -59,7 +59,7 @@ if [ -d "$HOME/.nvm" ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
+export PATH="$PATH:$(du "$HOME/scripts/bin" | cut -f2 | paste -sd ':')"
 export EDITOR="vim"
 export VISUAL="$EDITOR"
 
@@ -67,4 +67,10 @@ if [ -d "$HOME/.bun" ]; then
   # bun
   export BUN_INSTALL="$HOME/.bun"
   export PATH=$BUN_INSTALL/bin:$PATH
+fi
+# fnm
+FNM_PATH="/home/arcticon/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
 fi

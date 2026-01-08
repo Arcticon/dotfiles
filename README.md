@@ -1,13 +1,16 @@
 # dotfiles
 
+## Video
+
+(Video tutorial)[https://www.youtube.com/watch?v=y6XCebnB9gs]
+
 ## How to install
 ```bash
+sudo apt install stow -y
 cd ~
-git init
-git remote add origin git@github.com:Arcticon/dotfiles.git
-git fetch
-git checkout -b master
-git reset --mixed origin/master
+git clone git@github.com:Arcticon/dotfiles.git
+cd dotfiles
+stow -v --adopt .
 ```
 
 ## How to set editor variable
