@@ -74,3 +74,8 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
 fi
+
+# pnpm
+if [ -f $HOME/completion-for-pnpm.bash ]; then
+  source $HOME/completion-for-pnpm.bash
+fi
